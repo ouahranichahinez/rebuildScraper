@@ -72,7 +72,7 @@ export async function getCompaniesPageUrl (){
                       {total.push(e.href)}	
                   return total
               })
-              console.log("getting companies page url is done")
+              console.log(`getting companies page url is done (${links.length}`)
               await browser.close()	
               return links
       }
@@ -247,7 +247,6 @@ async function linkedinScraper(browser,page,cookie,linkedinUrls){
       })
     const data=fs.readFileSync('./data.json')
 		const c=JSON.parse(data)
-
     const page = await browser.newPage()
     const pagesUrls= await getCompaniesPageUrl(page)
     const linkedinUrls = await getLinkedinUrls(page,pagesUrls)
