@@ -124,7 +124,6 @@ export async function getLinkedinUrls(page,pagesUrls){
         const url = p[i]; 
         try{         		
            const status =await page.goto(`${url}`, {waitUntil: 'networkidle2'});
-           await page.waitForTimeout(3000)
           if(status.status() >= 400)
           {await page.reload({ waitUntil: ["networkidle2", "domcontentloaded"] })}
         }
