@@ -2,7 +2,7 @@ import puppeteer from "puppeteer"
 
 async function getCompaniesPageUrl (){
     const browser = await puppeteer.launch({
-        headless: false,
+        headless: true,
         args: ['--no-sandbox','--disable-setuid-sandbox']
       })
       const page = await browser.newPage()
@@ -52,7 +52,7 @@ async function getCompaniesPageUrl (){
 
   export const bot = async ()=>{
     const browser = await puppeteer.launch({
-        headless: false,
+        headless: true,
         args: ['--no-sandbox','--disable-setuid-sandbox']
       })
       const page = await browser.newPage()
