@@ -46,13 +46,13 @@ async function checkCookie(cookie){
   }catch(e){console.log(e)}
 }
 
-export async function getCompaniesPageUrl (){
+async function getCompaniesPageUrl (page){
 
-    const browser = await puppeteer.launch({
+   /* const browser = await puppeteer.launch({
         headless: true,
         args: ['--no-sandbox','--disable-setuid-sandbox']
       })
-      const page = await browser.newPage()
+      const page = await browser.newPage()*/
       const promise = page.waitForNavigation({ waitUntil: 'networkidle2' })	
       try {
       await page.goto('https://www.welcometothejungle.com/fr/jobs?groupBy=job&sortBy=mostRecent&query=&aroundQuery=France%2C+France&refinementList%5Boffice.country_code%5D%5B%5D=FR&refinementList%5Bprofession_name.fr.Tech%5D=&page=1');
