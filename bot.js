@@ -122,6 +122,7 @@ async function getCompaniesPageUrl (){
         const url = pagesUrls[i]; 
         try{         		
            const status =await page.goto(`${url}`, {waitUntil: 'networkidle2'});
+           await page.waitForTimeout(3000)
           if(status.status() >= 400)
           {await page.reload({ waitUntil: ["networkidle2", "domcontentloaded"] })}
         }
@@ -252,7 +253,7 @@ async function linkedinScraper(browser,page,cookie,linkedinUrls){
     const linkedinUrls = await getLinkedinUrls(page,pagesUrls)
 	//  const checkin = await checkCookie(c.cookie)
   //  if(!checkin){
-  //    //const data=fs.readFileSync('./cookies.json')
+  //    //const data=fs.readFileSync('./data.json')
   //    //const c=JSON.parse(data)
   //    //await linkedinScraper(browser,page,c.cookie, linkedinUrls)
   //  }
