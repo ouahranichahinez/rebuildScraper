@@ -72,7 +72,7 @@ export async function getCompaniesPageUrl (){
                       {total.push(e.href)}	
                   return total
               })
-              console.log(`getting companies page url is done (${links.length}`)
+              console.log(`getting companies page url is done (% of companies : ${links.length})`)
               await browser.close()	
               return links
       }
@@ -238,7 +238,6 @@ async function linkedinScraper(browser,page,cookie,linkedinUrls){
 
   
 }
-
 
   export const bot = async ()=>{
     const browser = await puppeteer.launch({
