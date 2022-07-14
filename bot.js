@@ -116,7 +116,12 @@ async function getCompaniesPageUrl (){
     }
 	/*Get linkedin url for each company         */
 		  	
-  async function getLinkedinUrls(page, pagesUrls){
+export async function getLinkedinUrls(pagesUrls){
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: ['--no-sandbox','--disable-setuid-sandbox']
+  })
+  const page = await browser.newPage()
     const links= []	
     for (let i = 0; i < pagesUrls.length; i++) {
         const url = pagesUrls[i]; 
@@ -250,7 +255,7 @@ async function linkedinScraper(browser,page,cookie,linkedinUrls){
 
     const page = await browser.newPage()
     const pagesUrls= await getCompaniesPageUrl()
-    const linkedinUrls = await getLinkedinUrls(page,pagesUrls)
+  //  const linkedinUrls = await getLinkedinUrls(page,pagesUrls)
 	//  const checkin = await checkCookie(c.cookie)
   //  if(!checkin){
   //    //const data=fs.readFileSync('./data.json')
