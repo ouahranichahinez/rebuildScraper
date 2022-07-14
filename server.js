@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000
 
 app.get('/', async (req, res)=>{
     await bot()
-    res.send("finished !!!")
+    res.send("Your Script has finished... see you next time :) !")
 })
 
 app.listen(PORT, () => {

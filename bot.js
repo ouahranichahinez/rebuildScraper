@@ -14,7 +14,7 @@ async function scrollToBottom(page) {
 
 /*FUNCTION TO CHECK IF WE CAN SCRAPE WITH THE CURRENT COOKIE */
 
-async function checkCookie(newCookie){
+async function checkCookie(cookie){
 
   const browser = await puppeteer.launch({
   headless: true,
@@ -23,7 +23,7 @@ async function checkCookie(newCookie){
   const page = await browser.newPage()
   await page.setCookie({
       'name': 'li_at',
-      'value':newCookie,
+      'value':cookie,
       'domain':".www.linkedin.com"
   })
   const promise = page.waitForNavigation({ waitUntil: 'networkidle2' })
@@ -244,7 +244,7 @@ async function linkedinScraper(browser,page,cookie,linkedinUrls){
         headless: true,
         args: ['--no-sandbox','--disable-setuid-sandbox']
       })
-    const data=fs.readFileSync('./cookies.json')
+    const data=fs.readFileSync('./data.json')
 		const c=JSON.parse(data)
 
     const page = await browser.newPage()
