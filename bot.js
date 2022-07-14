@@ -72,8 +72,8 @@ async function getCompaniesPageUrl (page){
                       {total.push(e.href)}	
                   return total
               })
-              console.log(`getting companies page url is done (% of companies : ${links.length})`)
-              await browser.close()	
+              console.log(`getting companies page url is done.`)
+              //await browser.close()	
               return links
       }
       catch(e){
@@ -118,8 +118,10 @@ async function getCompaniesPageUrl (page){
 		  	
 export async function getLinkedinUrls(page,pagesUrls){
      const links= []	
-    for (let i = 0; i < pagesUrls.length; i++) {
-        const url = pagesUrls[i]; 
+     let p=0
+     p=pagesUrls
+    for (let i = 0; i < p.length; i++) {
+        const url = p[i]; 
         try{         		
            const status =await page.goto(`${url}`, {waitUntil: 'networkidle2'});
            await page.waitForTimeout(3000)
