@@ -77,7 +77,7 @@ export async function getCompaniesPageUrl (){
               
               
               for (let i = 0; i < links.length; i++) {
-                const url = p[i]; 
+                const url = links[i]; 
                 try{         		
                    const status =await page.goto(`${url}`, {waitUntil: 'networkidle2'});
                   if(status.status() >= 400)
