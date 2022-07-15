@@ -4,13 +4,13 @@ import {getCompaniesPageUrl, getLinkedinUrls} from './bot.js'
 
 const app = express()
 const PORT = process.env.PORT || 3000
-
+app.use(timeout('100s'))
 app.get('/', async (req, res)=>{
     //await bot ()
     const m= await getCompaniesPageUrl()
-    res.write("step 1 is finished")
+    res.send("step 1 is finished")
     const n = await getLinkedinUrls(m)
-    res.send("Your Script has finished... see you next time :) !")
+    //res.send("Your Script has finished... see you next time :) !")
 })
 
 app.listen(PORT, () => {
