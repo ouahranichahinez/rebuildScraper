@@ -116,7 +116,7 @@ export async function getCompaniesPageUrl (){
     }
 	/*Get linkedin url for each company         */
 		  	
-export async function getLinkedinUrls(){
+export async function getLinkedinUrls(pagesUrls){
   const browser = await puppeteer.launch({
     headless: true,
     args: ['--no-sandbox','--disable-setuid-sandbox']
