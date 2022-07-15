@@ -1,5 +1,5 @@
 import express from 'express'
-import {bot,getCompaniesPageUrl, getLinkedinUrls} from './bot.js'
+import {getCompaniesPageUrl, getLinkedinUrls} from './bot.js'
 
 
 const app = express()
