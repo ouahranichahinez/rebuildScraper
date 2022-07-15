@@ -5,7 +5,7 @@ import timeout from 'connect-timeout'
 
 const app = express()
 const PORT = process.env.PORT || 3000
-app.use(timeout('100s'))
+//app.use(timeout('100s'))
 app.get('/', async (req, res)=>{
     //await bot ()
     const m= await getCompaniesPageUrl()
