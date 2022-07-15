@@ -72,7 +72,8 @@ export async function getCompaniesPageUrl (){
                       {total.push(e.href)}	
                   return total
               })
-             if(links.length !== 0) {console.log(`getting companies page url is done.`)}
+             if(links.length !== 0) {console.log(`getting companies page url is done.`)
+                                    console.log(links)}
               await browser.close()	
               return links
       }
@@ -164,7 +165,8 @@ const page = await browser.newPage()
     }catch(e){console.log(e)}
     }
     await browser.close()	
-    if(linkedinurl.length !== 0) {console.log('getting linkedin urls is done')}
+    if(linkedinurl.length !== 0) {console.log('getting linkedin urls is done')
+                                  console.log(linkedinurl)}
     return linkedinurl
   }
 
