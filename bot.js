@@ -74,51 +74,8 @@ export async function getCompaniesPageUrl (){
               })
              if(links.length !== 0) {console.log(`getting companies page url is done.`)
                                     console.log(links)}
-              
-              
-              for (let i = 0; i < links.length; i++) {
-                const url = links[i]; 
-                try{         		
-                   const status =await page.goto(`${url}`, {waitUntil: 'networkidle2'});
-                  if(status.status() >= 400)
-                  {await page.reload({ waitUntil: ["networkidle2", "domcontentloaded"] })}
-                }
-                catch(e){await page.reload({ waitUntil: ["networkidle2", "domcontentloaded"] })
-                }
-                try{
-                const companyLink= await page.$eval('main > section > div > a',el=>el.href)
-                if(companyLink !== undefined){
-                  let exist=false
-                  for(let i=0; i<links.length;i++){
-                    if(companyLink === links[i])
-                    {exist=true}
-                  }
-                  if(!exist){links.push(companyLink)}
-                }	
-            }	
-            catch(e){console.log(e)}	
-          }
-            const linkedinurl=[]
-            for(let i=0; i< links.length; i++){
-              try{
-              await page.goto(`${links[i]}`,{waitUntil: 'networkidle2'})
-              let total= await page.evaluate(()=>{
-                const linksList= document.querySelectorAll('li.ommjf1-5')
-                for (e of linksList){
-                  if((e.querySelector('a i').getAttribute('name') === 'linkedin'))
-                  {
-                    return  e.querySelector('a')?.href
-                  }
-                }		
-              })
-              linkedinurl.push(total)
-            }catch(e){console.log(e)}
-            }
-            await browser.close()	
-            if(linkedinurl.length !== 0) {console.log('getting linkedin urls is done')
-                                          console.log(linkedinurl)}
-            return linkedinurl
-              //return links
+              await browser.close()	
+              return links
       }
       catch(e){
           console.log(e)
