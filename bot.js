@@ -137,7 +137,7 @@ const page = await browser.newPage()
         }
         try{
         const companyLink= await page.$eval('main > section > div > a',el=>el.href)
-        if(companyLink !== 'undefined'){
+        if(companyLink !== undefined){
           let exist=false
           for(let i=0; i<links.length;i++){
             if(companyLink === links[i])
