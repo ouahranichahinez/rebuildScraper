@@ -46,7 +46,7 @@ async function checkCookie(cookie){
   }catch(e){console.log(e)}
 }
 
-async function getCompaniesPageUrl (page){
+export async function getCompaniesPageUrl (page){
 
    /* const browser = await puppeteer.launch({
         headless: true,
@@ -240,6 +240,7 @@ async function linkedinScraper(browser,page,cookie,linkedinUrls){
   
 }
 
+/*
   export const bot = async ()=>{
     const browser = await puppeteer.launch({
         headless: true,
@@ -258,3 +259,4 @@ async function linkedinScraper(browser,page,cookie,linkedinUrls){
   //  }
       await browser.close()	
   }
+*/
